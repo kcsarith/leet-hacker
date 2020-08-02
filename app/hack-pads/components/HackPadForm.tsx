@@ -20,23 +20,25 @@ export function HackPadForm<S extends z.ZodType<any, any>>(props: FormProps<S>) 
         />
         <LabeledTextField name="source" label="Source" placeholder="Source" />
         <LabeledTextArea name="textField" label="Text Field" placeholder="Text Field" />
-        <div className="flex justify-between items-center w-64">
-          <LabeledSelectField
-            name="applyStyling"
-            label="Apply Styling"
-            placeholder="Apply Styling"
-          />
-          <LabeledSelectField
-            name="includeSpaces"
-            label="Include Spaces"
-            placeholder="Include Spaces"
-          />
+        <div className="flex flex-col justify-between items-center w-64">
+          <div className="flex justify-between items-center w-64">
+            <LabeledSelectField
+              name="applyStyling"
+              label="Apply Styling"
+              placeholder="Apply Styling"
+            />
+            <LabeledSelectField
+              name="includeSpaces"
+              label="Include Spaces"
+              placeholder="Include Spaces"
+            />
+          </div>
+          <button type="submit" className="text-center bg-red-800 rounded-xl hover:bg-red-900">
+            <h1 className="text-xl text-center px-4 py-2 ">
+              <a>Proceed with action</a>
+            </h1>
+          </button>
         </div>
-        <button type="submit" className="text-center bg-red-800 rounded-xl hover:bg-red-900">
-          <h1 className="text-xl text-center px-4 py-2 ">
-            <a>Proceed with action</a>
-          </h1>
-        </button>
       </div>
     </Form>
   )
