@@ -53,11 +53,10 @@ export const TextStats = ({ hackPad }) => {
                   <span
                     className={hackPad.applyStyling === "false" ? "" : "font-extrabold text-white"}
                   >
-                    {" "}
                     {ele.char}
+                    {"'"}s
                   </span>{" "}
-                  first appeared at index: {ele.orderOfAppearance} with a total of {ele.count}{" "}
-                  element(s).
+                  first index: {ele.orderOfAppearance} with {ele.count} element(s).
                 </p>
               )
             }
