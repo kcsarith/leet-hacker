@@ -30,8 +30,8 @@ export const HackPadsList = () => {
   const goToNextPage = () => router.push({ query: { page: page + 1 } })
   return (
     <>
-      <h1 className="text-4xl text-center align-center pt-8">{`Newest Hack Pads Page ${page}`}</h1>
-      <div className="flex flex-rows justify-center items-center">
+      <h1 className="text-2xl md:text-4xl text-center align-center pt-8">{`Newest Hack Pads Page ${page}`}</h1>
+      <div className="flex flex-rows justify-center items-center my-6">
         <button
           className="text-center bg-red-800 rounded-sm hover:bg-red-900 w-24 mx-4 my-2 "
           disabled={page === 0}
@@ -47,7 +47,7 @@ export const HackPadsList = () => {
           Next
         </button>
       </div>
-      <div className="grid 2xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-8 p-12 content-center">
+      <div className="grid 2xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 md:gap-8 md:p-12 content-center">
         {hackPads.map((hackPad) => (
           <Card
             key={hackPad.id}
