@@ -1,7 +1,7 @@
 export const Card = ({ title, source, message, href, deleteAction, backgroundSrc }) => {
   return (
-    <div className="flex flex-col w-full justify-center items-center">
-      <div className="bg-white shadow p-3 rounded md:ring-8 w-full xl:w-48 lg:w-52 xl:w-64 sm:w-60 md:w-48">
+    <div className="flex flex-col w-full justify-center items-center mb-2">
+      <div className="bg-white shadow p-3 rounded hover:ring-8 w-full xl:w-48 lg:w-52 xl:w-64 sm:w-60 md:w-48">
         <a href={href} target="_blank" rel="noreferrer">
           <div
             style={{
