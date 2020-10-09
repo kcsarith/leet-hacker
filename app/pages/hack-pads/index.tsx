@@ -107,7 +107,7 @@ export const HackPadsList = () => {
       ) : null}
       <div className="flex justify-center align-center w-full">
         <Link href={Routes.NewHackPadPage()}>
-          <button className="text-center bg-red-800 rounded-xl hover:bg-red-900 px-4 py-4 my-4">
+          <button className="text-center bg-red-800 rounded-sm hover:bg-red-900 px-4 py-4 my-4">
             <h1 className="text-xl text-center  ">
               <a>Create new hack pad</a>
             </h1>
