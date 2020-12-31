@@ -11,6 +11,7 @@ import {
 import Home from "app/pages/index"
 import "app/core/styles/index.css"
 import { Router } from "blitz"
+import "app/core/styles/index.css";
 export default function App({ Component, pageProps }: AppProps) {
   const getLayout = Component.getLayout || ((page) => page)
 
