@@ -8,13 +8,13 @@ import Card from "app/core/components/Card"
 
 import Modal from "app/core/components/Modal"
 
-const ITEMS_PER_PAGE = 100
+const ITEMS_PER_PAGE = 25
 
 export const HackPadsList = () => {
   const router = useRouter()
   const page = Number(router.query.page) || 0
   const [{ hackPads, hasMore }] = usePaginatedQuery(getHackPads, {
-    orderBy: { id: "asc" },
+    orderBy: { id: "desc" },
     skip: ITEMS_PER_PAGE * page,
     take: ITEMS_PER_PAGE,
   })
@@ -30,6 +30,23 @@ export const HackPadsList = () => {
   const goToNextPage = () => router.push({ query: { page: page + 1 } })
   return (
     <>
+      <h1 className="text-4xl text-center align-center pt-8">{`Newest Hack Pads Page ${page}`}</h1>
+      <div className="flex flex-rows justify-center items-center">
+        <button
+          className="text-center bg-red-800 rounded-sm hover:bg-red-900 w-24 mx-4 my-2 "
+          disabled={page === 0}
+          onClick={goToPreviousPage}
+        >
+          Previous
+        </button>
+        <button
+          className="text-center bg-red-800 rounded-sm hover:bg-red-900  w-24 mx-4 my-2 "
+          disabled={!hasMore}
+          onClick={goToNextPage}
+        >
+          Next
+        </button>
+      </div>
       <div className="grid 2xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-8 p-12 content-center">
         {hackPads.map((hackPad) => (
           <Card
@@ -88,31 +105,31 @@ export const HackPadsList = () => {
           closeButtonAction={undefined}
         />
       ) : null}
-      <div className="flex justify-center align-center w-full pb-24">
+      <div className="flex justify-center align-center w-full">
         <Link href={Routes.NewHackPadPage()}>
-          <button className="text-center bg-red-800 rounded-xl hover:bg-red-900">
-            <h1 className="text-xl text-center px-4 py-2 ">
+          <button className="text-center bg-red-800 rounded-xl hover:bg-red-900 px-4 py-4 my-4">
+            <h1 className="text-xl text-center  ">
               <a>Create new hack pad</a>
             </h1>
           </button>
         </Link>
       </div>
-      {/* <div className="flex flex-rows justify-center items-center">
+      <div className="flex flex-rows justify-center items-center">
         <button
-          className="text-center bg-red-800 rounded-xl hover:bg-red-900 m-2 px-4 py-2 "
+          className="text-center bg-red-800 rounded-sm hover:bg-red-900 w-24 mx-4 my-2 "
           disabled={page === 0}
           onClick={goToPreviousPage}
         >
           Previous
         </button>
         <button
-          className="text-center bg-red-800 rounded-xl hover:bg-red-900 m-2 px-4 py-2 "
+          className="text-center bg-red-800 rounded-sm hover:bg-red-900  w-24 mx-4 my-2 "
           disabled={!hasMore}
           onClick={goToNextPage}
         >
           Next
         </button>
-      </div> */}
+      </div>
     </>
   )
 }
@@ -123,9 +140,6 @@ const HackPadsPage: BlitzPage = () => {
       <Head>
         <title>HackPads</title>
       </Head>
-      <h1 className="text-4xl text-center align-center pt-8">
-        <a>Newest Hack Pads</a>
-      </h1>
 
       <Suspense fallback={<div>Loading...</div>}>
         <HackPadsList />
