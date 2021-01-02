@@ -19,7 +19,7 @@ const Layout = ({ title, children }: LayoutProps) => {
         <main>
           <div className="container m-auto bg-black text-white min-h-90vh pb-96">{children}</div>
         </main>
-        <div className="-bottom-0 w-full absolute">
+        <div className="-bottom-48 w-full absolute">
           <Footer />
         </div>
       </div>
