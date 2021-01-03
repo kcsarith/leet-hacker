@@ -2,7 +2,7 @@ import logout from "app/auth/mutations/logout"
 import login from "app/auth/mutations/login"
 import React, { Suspense } from "react"
 
-import { Link, BlitzPage, useMutation, Routes } from "blitz"
+import { Link, BlitzPage, useRouter, useMutation, Routes } from "blitz"
 import { useCurrentUser } from "app/core/hooks/useCurrentUser"
 import Modal from "./Modal"
 import Image from "next/image"
@@ -45,6 +45,7 @@ const NavBarRight = () => {
   const [logoutMutation] = useMutation(logout)
   const [loginMutation] = useMutation(login)
 
+  const router = useRouter()
   const currentUser = useCurrentUser()
   const [showLoginModal, setShowLoginModal] = React.useState(false)
   const [showSignupModal, setShowSignupModal] = React.useState(false)
@@ -82,7 +83,14 @@ const NavBarRight = () => {
         />
         <Modal
           modalTitle="Login"
-          modalBody={<LoginForm onSuccess={() => setShowLoginModal(false)} />}
+          modalBody={
+            <LoginForm
+              onSuccess={() => {
+                router.push(Routes.HackPadsPage())
+                setShowLoginModal(false)
+              }}
+            />
+          }
           // submitButtonName="Submit"
           // closeButtonName="Close"
           showModal={showLoginModal}
@@ -98,7 +106,14 @@ const NavBarRight = () => {
         />
         <Modal
           modalTitle="Register"
-          modalBody={<SignupForm onSuccess={() => setShowSignupModal(false)} />}
+          modalBody={
+            <SignupForm
+              onSuccess={() => {
+                router.push(Routes.HackPadsPage())
+                setShowSignupModal(false)
+              }}
+            />
+          }
           // submitButtonName="Submit"
           // closeButtonName="Close"
           showModal={showSignupModal}
