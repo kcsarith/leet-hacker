@@ -3,10 +3,33 @@ import Modal from "./Modal"
 import React, { Suspense } from "react"
 import SignupForm from "app/auth/components/SignupForm"
 
-import { Link, BlitzPage, useMutation, Routes } from "blitz"
+import { useCurrentUser } from "app/core/hooks/useCurrentUser"
+
+const MysteryButton = (setShowSignupModal) => {
+  const currentUser = useCurrentUser()
+
+  if (!currentUser) {
+    return (
+      <button
+        className="rounded bg-pink-600 text-white py-2 px-4 font-bold"
+        type="button"
+        onClick={() => setShowSignupModal(true)}
+      >
+        Are you ready?
+      </button>
+    )
+  } else {
+    return (
+      <h1 className="font-sans text-4xl">
+        lOoKs LikE yOU aRe ALeAdy lOGgEd iN! tIME tO StARt cRaCkInG DoWN coDEz!
+      </h1>
+    )
+  }
+}
 
 export const HomepageHeader = () => {
   const [showSignupModal, setShowSignupModal] = React.useState(false)
+
   return (
     <>
       <div className="w-full">
@@ -20,13 +43,9 @@ export const HomepageHeader = () => {
           <div className="flex flex-col justify-center items-center text-center text-white h-96 py-8">
             <h1 className="font-sans text-4xl">Where Leet Code meets HackerRank</h1>
             <h2 className="text-xl tracking-wide mt-2 mb-4">Become an ELITE HACKER!</h2>
-            <button
-              className="rounded bg-pink-600 text-white py-2 px-4 font-bold"
-              type="button"
-              onClick={() => setShowSignupModal(true)}
-            >
-              Are you ready?
-            </button>
+            <Suspense fallback="Loading...">
+              <MysteryButton setShowSignupModal={setShowSignupModal} />
+            </Suspense>
           </div>
         </div>
         <div className="text-black">
