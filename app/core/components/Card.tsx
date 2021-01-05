@@ -11,8 +11,10 @@ export const Card = ({ title, source, message, href, deleteAction, backgroundSrc
           ></div>
         </a>
         <div className="mt-6 ">
-          <p className="text-lg text-bold tracking-wide text-gray-600">{title}</p>
-          <p className="text-md text-gray-600">{source}</p>
+          <p className="text-lg text-bold tracking-wide text-gray-600 overflow-hidden truncate">
+            {title}
+          </p>
+          <p className="text-md text-gray-600 overflow-hidden truncate">{source}</p>
           <p className="text-sm text-gray-600 font-hairline h-12 overflow-hidden truncate ">
             {message ? message : "NO TEXT"}
           </p>
