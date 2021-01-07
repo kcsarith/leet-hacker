@@ -1,5 +1,9 @@
 [![Blitz.js](https://raw.githubusercontent.com/blitz-js/art/master/github-cover-photo.png)](https://blitzjs.com)
 
+View the App live
+
+https://blitzapp-83db.onrender.com/
+
 This is a [Blitz.js](https://github.com/blitz-js/blitz) app.
 
 # **leet-hacker**
