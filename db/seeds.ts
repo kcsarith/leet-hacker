@@ -855,20 +855,20 @@ const seed = async () => {
     },
   ]
 
-  await db.user.create({
-    data: {
-      name: "demolitionman",
-      email: "demolition@demo.com",
-      hashedPassword: await SecurePassword.hash("demolitionman".trim()),
-    },
-  })
-  await db.user.create({
-    data: {
-      name: "kcsarith",
-      email: "kcsarith@gmail.com",
-      hashedPassword: await SecurePassword.hash("Rishit@6".trim()),
-    },
-  })
+  // await db.user.create({
+  //   data: {
+  //     name: "demolitionman",
+  //     email: "demolition@demo.com",
+  //     hashedPassword: await SecurePassword.hash("demolitionman".trim()),
+  //   },
+  // })
+  // await db.user.create({
+  //   data: {
+  //     name: "kcsarith",
+  //     email: "kcsarith@gmail.com",
+  //     hashedPassword: await SecurePassword.hash("Rishit@6".trim()),
+  //   },
+  // })
   await db.user.create({
     data: {
       name: "Matoi",
@@ -905,19 +905,19 @@ const seed = async () => {
     },
   })
 
-  // for (let i = 0; i < hackPadSeedData.length; i++) {
-  //   const hackPad = hackPadSeedData[i]
-  //   await db.hackPad.create({
-  //     data: {
-  //       name: hackPad?.name,
-  //       textField: hackPad?.textField,
-  //       source: hackPad?.source,
-  //       applyStyling: hackPad?.applyStyling,
-  //       includeSpaces: hackPad?.includeSpaces,
-  //       backgroundSrc: hackPad?.backgroundSrc,
-  //     },
-  //   })
-  // }
+  for (let i = 0; i < hackPadSeedData.length; i++) {
+    const hackPad = hackPadSeedData[i]
+    await db.hackPad.create({
+      data: {
+        name: hackPad?.name,
+        textField: hackPad?.textField,
+        source: hackPad?.source,
+        applyStyling: hackPad?.applyStyling,
+        includeSpaces: hackPad?.includeSpaces,
+        backgroundSrc: hackPad?.backgroundSrc,
+      },
+    })
+  }
 }
 
 export default seed
