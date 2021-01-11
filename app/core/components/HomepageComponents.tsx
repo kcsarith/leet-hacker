@@ -5,18 +5,11 @@ import SignupForm from "app/auth/components/SignupForm"
 
 import { useCurrentUser } from "app/core/hooks/useCurrentUser"
 
-const MysteryButton = (setShowSignupModal) => {
+const MysteryButton = () => {
   const currentUser = useCurrentUser()
 
   if (!currentUser) {
-    return (
-      <button
-        className="rounded bg-pink-600 text-white py-2 px-4 font-bold"
-        type="button"
-        onClick={() => setShowSignupModal(true)}
-      >
-        Are you ready?
-      </button>
+    return (<></>
     )
   } else {
     return (
@@ -28,8 +21,7 @@ const MysteryButton = (setShowSignupModal) => {
 }
 
 export const HomepageHeader = () => {
-  const [showSignupModal, setShowSignupModal] = React.useState(false)
-
+const [showSignupModal,setShowSignupModal] =React.useState(false)
   return (
     <>
       <div className="w-full">
@@ -44,7 +36,7 @@ export const HomepageHeader = () => {
             <h1 className="font-sans text-4xl">Where Leet Code meets HackerRank</h1>
             <h2 className="text-xl tracking-wide mt-2 mb-4">Become an ELITE HACKER!</h2>
             <Suspense fallback="Loading...">
-              <MysteryButton setShowSignupModal={setShowSignupModal} />
+              <MysteryButton  />
             </Suspense>
           </div>
         </div>
