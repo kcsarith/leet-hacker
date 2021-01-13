@@ -8,10 +8,8 @@ const LoginPage: BlitzPage = () => {
   return (
     <div>
       <LoginForm
-        onSuccess={() => {
-          const next = router.query.next
-            ? decodeURIComponent(router.query.next as string)
-            : Routes.HackPadsPage()
+          onSuccess={() => {
+          const next = router.query.next ? decodeURIComponent(router.query.next as string) : "/"
           router.push(next)
         }}
       />
@@ -19,7 +17,7 @@ const LoginPage: BlitzPage = () => {
   )
 }
 
-LoginPage.redirectAuthenticatedTo = "/hack-pads"
+LoginPage.redirectAuthenticatedTo = "/"
 LoginPage.getLayout = (page) => <Layout title="Log In">{page}</Layout>
 
 export default LoginPage
