@@ -33,9 +33,9 @@ export const TextStats = ({ hackPad }) => {
 
   return (
     <>
-      <div className="grid grid-rows-2 gap-3 p-0 lg:p-12 text-yellow-100">
+      <div className="grid grid-rows-2 xl:gap-3 p-0 lg:p-12 text-yellow-100">
         {/* TOP */}
-        <div className="flex flex-col justify-center items-center bg-red-900 rounded-3xl h-96 py-12 ">
+        <div className="flex flex-col justify-center items-center bg-red-900 xl:rounded-3xl h-96 py-12 ">
           <h1
             className={
               hackPad.applyStyling === "false"
@@ -54,16 +54,15 @@ export const TextStats = ({ hackPad }) => {
                     className={hackPad.applyStyling === "false" ? "" : "font-extrabold text-white"}
                   >
                     {ele.char}
-                    {"'"}s
-                  </span>{" "}
-                  first index: {ele.orderOfAppearance} with {ele.count} element(s).
+                  </span>
+                  {"'"}s first index: {ele.orderOfAppearance} with {ele.count} element(s).
                 </p>
               )
             }
           })}
         </div>
         {/* BOTTOM */}
-        <div className="flex flex-col justify-center items-center py-12 bg-green-900 rounded-3xl h-96 ">
+        <div className="flex flex-col justify-center items-center py-12 bg-green-900 xl:rounded-3xl h-96 ">
           <h1
             className={
               hackPad.applyStyling === "false"
