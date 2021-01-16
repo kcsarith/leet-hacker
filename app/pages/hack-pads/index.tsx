@@ -47,7 +47,7 @@ export const HackPadsList = () => {
           Next
         </button>
       </div>
-      <div className=" flex flex-col justify-center items-center md:grid 2xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-0 md:gap-8 md:p-12">
+      <div className=" flex flex-col justify-center items-center sm:grid 2xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-0 md:gap-8 md:p-12">
         {hackPads.map((hackPad) => (
           <Card
             key={hackPad.id}
