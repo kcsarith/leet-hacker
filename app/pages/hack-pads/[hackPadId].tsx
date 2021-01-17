@@ -43,31 +43,33 @@ export const HackPad = () => {
       </div>
       <div className="grid grid-cols-1 xl:grid-cols-2">
         <TextStats hackPad={hackPad} />
-        <div className="flex flex-col justify-center items-center ">
-          <div className="bg-blue-900 rounded-3xl w-full h-full lg:ml-24 lg:mr-36 mx-auto my-12 py-24">
-            <h1 className="text-4xl text-center m-8">EDIT THE HACK PAD</h1>
-            <HackPadForm
-              // TODO use a zod schema for form validation
-              //  - Tip: extract mutation's schema into a shared `validations.ts` file and
-              //         then import and use it here
-              // schema={UpdateHackPad}
-              initialValues={hackPad}
-              onSubmit={async (values) => {
-                try {
-                  const updated = await updateHackPadMutation({
-                    id: hackPad.id,
-                    ...values,
-                  })
-                  await setQueryData(updated)
-                  router.push(Routes.ShowHackPadPage({ hackPadId: updated.id }))
-                } catch (error) {
-                  console.error(error)
-                  return {
-                    [FORM_ERROR]: error.toString(),
+        <div className="lg:px-12">
+          <div className="flex flex-col justify-center items-center">
+            <div className="bg-blue-900 xl:rounded-3xl w-full h-full xl:ml-24 xl:mr-36 mx-auto xl:my-12 pb-24">
+              <h1 className="text-4xl text-center m-8">EDIT THE HACK PAD</h1>
+              <HackPadForm
+                // TODO use a zod schema for form validation
+                //  - Tip: extract mutation's schema into a shared `validations.ts` file and
+                //         then import and use it here
+                // schema={UpdateHackPad}
+                initialValues={hackPad}
+                onSubmit={async (values) => {
+                  try {
+                    const updated = await updateHackPadMutation({
+                      id: hackPad.id,
+                      ...values,
+                    })
+                    await setQueryData(updated)
+                    router.push(Routes.ShowHackPadPage({ hackPadId: updated.id }))
+                  } catch (error) {
+                    console.error(error)
+                    return {
+                      [FORM_ERROR]: error.toString(),
+                    }
                   }
-                }
-              }}
-            />
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
