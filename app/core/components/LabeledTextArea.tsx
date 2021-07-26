@@ -1,13 +1,12 @@
 import { forwardRef, PropsWithoutRef } from "react"
 import { useField } from "react-final-form"
 
-export interface LabeledTextAreaProps extends PropsWithoutRef<JSX.IntrinsicElements["input"]> {
+export interface LabeledTextAreaProps extends PropsWithoutRef<JSX.IntrinsicElements["textarea"]> {
   /** Field name. */
   name: string
   /** Field label. */
   label: string
   /** Field type. Doesn't include radio buttons and checkboxes */
-  type?: "text" | "password" | "email" | "number"
   outerProps?: PropsWithoutRef<JSX.IntrinsicElements["div"]>
 }
 
@@ -16,9 +15,7 @@ export const LabeledTextArea = forwardRef<HTMLTextAreaElement, LabeledTextAreaPr
     const {
       input,
       meta: { touched, error, submitError, submitting },
-    } = useField(name, {
-      parse: props.type === "number" ? Number : undefined,
-    })
+    } = useField(name, {})
 
     const normalizedError = Array.isArray(error) ? error.join(", ") : error || submitError
 
@@ -30,12 +27,10 @@ export const LabeledTextArea = forwardRef<HTMLTextAreaElement, LabeledTextAreaPr
             rows={10}
             cols={50}
             className="bg-gray-100 p-1 appearance-none border rounded w-full text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="description"
-            type="text"
             {...input}
             disabled={submitting}
             {...props}
-            // ref={ref}
+            ref={ref}
           />
         </label>
 
@@ -52,7 +47,7 @@ export const LabeledTextArea = forwardRef<HTMLTextAreaElement, LabeledTextAreaPr
             align-items: start;
             font-size: 1rem;
           }
-          input {
+          textarea {
             font-size: 1rem;
             padding: 0.25rem 0.5rem;
             border-radius: 3px;
