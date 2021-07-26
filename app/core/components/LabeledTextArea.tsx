@@ -1,7 +1,7 @@
 import { forwardRef, PropsWithoutRef } from "react"
 import { useField } from "react-final-form"
 
-export interface LabeledTextFieldProps extends PropsWithoutRef<JSX.IntrinsicElements["input"]> {
+export interface LabeledTextAreaProps extends PropsWithoutRef<JSX.IntrinsicElements["input"]> {
   /** Field name. */
   name: string
   /** Field label. */
@@ -11,7 +11,7 @@ export interface LabeledTextFieldProps extends PropsWithoutRef<JSX.IntrinsicElem
   outerProps?: PropsWithoutRef<JSX.IntrinsicElements["div"]>
 }
 
-export const LabeledTextField = forwardRef<HTMLInputElement, LabeledTextFieldProps>(
+export const LabeledTextArea = forwardRef<HTMLTextAreaElement, LabeledTextAreaProps>(
   ({ name, label, outerProps, ...props }, ref) => {
     const {
       input,
@@ -23,15 +23,19 @@ export const LabeledTextField = forwardRef<HTMLInputElement, LabeledTextFieldPro
     const normalizedError = Array.isArray(error) ? error.join(", ") : error || submitError
 
     return (
-      <div {...outerProps} className="w-full">
+      <div {...outerProps}>
         <label>
           {label}
-          <input
-            className="w-full text-black"
+          <textarea
+            rows={10}
+            cols={50}
+            className="bg-gray-100 p-1 appearance-none border rounded w-full text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="description"
+            type="text"
             {...input}
             disabled={submitting}
             {...props}
-            ref={ref}
+            // ref={ref}
           />
         </label>
 
@@ -62,4 +66,4 @@ export const LabeledTextField = forwardRef<HTMLInputElement, LabeledTextFieldPro
   }
 )
 
-export default LabeledTextField
+export default LabeledTextArea

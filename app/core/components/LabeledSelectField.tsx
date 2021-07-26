@@ -1,38 +1,38 @@
 import { forwardRef, PropsWithoutRef } from "react"
 import { useField } from "react-final-form"
 
-export interface LabeledTextFieldProps extends PropsWithoutRef<JSX.IntrinsicElements["input"]> {
+export interface LabeledSelectFieldProps extends PropsWithoutRef<JSX.IntrinsicElements["input"]> {
   /** Field name. */
   name: string
   /** Field label. */
   label: string
   /** Field type. Doesn't include radio buttons and checkboxes */
-  type?: "text" | "password" | "email" | "number"
   outerProps?: PropsWithoutRef<JSX.IntrinsicElements["div"]>
 }
 
-export const LabeledTextField = forwardRef<HTMLInputElement, LabeledTextFieldProps>(
+export const LabeledSelectField = forwardRef<HTMLSelectElement, LabeledSelectFieldProps>(
   ({ name, label, outerProps, ...props }, ref) => {
     const {
-      input,
+      select,
       meta: { touched, error, submitError, submitting },
-    } = useField(name, {
-      parse: props.type === "number" ? Number : undefined,
-    })
+    } = useField(name, {})
 
     const normalizedError = Array.isArray(error) ? error.join(", ") : error || submitError
 
     return (
-      <div {...outerProps} className="w-full">
+      <div {...outerProps} className="my-4">
         <label>
           {label}
-          <input
+          <select
             className="w-full text-black"
-            {...input}
+            {...select}
             disabled={submitting}
             {...props}
             ref={ref}
-          />
+          >
+            <option value="false">False</option>
+            <option value="true">True</option>
+          </select>
         </label>
 
         {touched && normalizedError && (
@@ -48,7 +48,7 @@ export const LabeledTextField = forwardRef<HTMLInputElement, LabeledTextFieldPro
             align-items: start;
             font-size: 1rem;
           }
-          input {
+          select {
             font-size: 1rem;
             padding: 0.25rem 0.5rem;
             border-radius: 3px;
@@ -62,4 +62,4 @@ export const LabeledTextField = forwardRef<HTMLInputElement, LabeledTextFieldPro
   }
 )
 
-export default LabeledTextField
+export default LabeledSelectField
