@@ -13,18 +13,18 @@ generator client {
 // --------------------------------------
 
 model User {
-  id             Int      @id @default(autoincrement())
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
-  name           String?
-  email          String   @unique
-  hashedPassword String?
-  role           String   @default("USER")
-
-  askUploadPrompt   Boolean @default(true)
-  askWebsitePrompt  Boolean @default(true)
-  mergeUploadToPad  Boolean @default(false)
-  MergeWebsiteToPad Boolean @default(false)
+  id                Int      @id @default(autoincrement())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  name              String?
+  email             String   @unique
+  hashedPassword    String?
+  role              String   @default("USER")
+  askUploadPrompt   Boolean  @default(true)
+  askWebsitePrompt  Boolean  @default(true)
+  mergeUploadToPad  Boolean  @default(false)
+  MergeWebsiteToPad Boolean  @default(false)
+  backgroundSrc     String?  @default("https://www.mcgilltribune.com/wp-content/uploads/2020/02/hacker.png")
 
   tokens   Token[]
   sessions Session[]
@@ -70,15 +70,16 @@ model Token {
 // }
 
 model HackPad {
-  id           Int      @id @default(autoincrement())
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  name         String   @default("")
-  userId       Int?
-  listOrder    Int?
-  textField    String   @default("")
-  source       String   @default("User Generated")
-  applyStyling Boolean  @default(false)
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  name          String   @default("")
+  listOrder     Int?
+  textField     String   @default("")
+  source        String   @default("User Generated")
+  applyStyling  String   @default("true")
+  includeSpaces String   @default("false")
+  backgroundSrc String?  @default("https://www.mcgilltribune.com/wp-content/uploads/2020/02/hacker.png")
 }
 
 model CharConfig {
