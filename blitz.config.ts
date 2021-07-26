@@ -3,7 +3,7 @@ import { BlitzConfig, sessionMiddleware, simpleRolesIsAuthorized } from "blitz"
 const config: BlitzConfig = {
   middleware: [
     sessionMiddleware({
-      cookiePrefix: "hacking-rank",
+      cookiePrefix: "leet-hacker",
       isAuthorized: simpleRolesIsAuthorized,
     }),
   ],
