@@ -22,7 +22,7 @@ export const Footer = () => {
               >
                 <span className="sr-only">GitHub</span>
                 <svg
-                  className="w-24 h-24"
+                  className="w-12 h-12"
                   aria-hidden="true"
                   fill="currentColor"
                   viewBox="0 0 24 24"
@@ -53,7 +53,7 @@ export const Footer = () => {
               >
                 <span className="sr-only">LinkedIn</span>
                 <svg
-                  className="w-24 h-24"
+                  className="w-12 h-12"
                   aria-hidden="true"
                   fill="currentColor"
                   viewBox="0 0 24 24"
@@ -84,7 +84,7 @@ export const Footer = () => {
               >
                 <span className="sr-only">AngelList</span>
                 <svg
-                  className="w-24 h-24"
+                  className="w-12 h-12"
                   aria-hidden="true"
                   fill="currentColor"
                   viewBox="0 0 256 369"
@@ -115,7 +115,7 @@ export const Footer = () => {
               >
                 <span className="sr-only">Personal Website</span>
                 <svg
-                  className="w-24 h-24"
+                  className="w-12 h-12"
                   aria-hidden="true"
                   fill="currentColor"
                   viewBox="0 0 24 24"
@@ -146,7 +146,7 @@ export const Footer = () => {
               >
                 <span className="sr-only">Source Code</span>
                 <svg
-                  className="w-24 h-24"
+                  className="w-12 h-12"
                   aria-hidden="true"
                   fill="currentColor"
                   viewBox="0 0 24 24"
